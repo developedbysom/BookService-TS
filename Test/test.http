@@ -1,20 +1,23 @@
-## GET All Books
-
-GET http://localhost:3000/api/books HTTP/1.1
-
-
 ### Add a new book
+
 POST http://localhost:3000/api/books
 Content-Type: application/json
 
 {
   "title": "Brave New World1",
   "author": "Aldous Huxley",
-  "year": 1932,
-  "genre": "Science Fiction",
-  "rating": 4.7,
-  "publisher": "Chatto & Windus"
+  "year": 1932
 }
 
-### Grouped By Author
-GET http://localhost:3000/api/books/author/by-author HTTP/1.1
+
+### GET All Books
+GET http://localhost:3000/api/books HTTP/1.1
+
+
+### GET Book By ID
+GET http://localhost:3000/api/books/is5avcd HTTP/1.1
+
+
+### DELETE Book by ID
+
+DELETE http://localhost:3000/api/books/is5avcd HTTP/1.1
