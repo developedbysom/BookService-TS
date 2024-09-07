@@ -6,9 +6,15 @@ export class BookService {
   public getAllBooks(): BookModel[] {
     return this.Book;
   }
+  getBookByID(id: string): BookModel | undefined 
+  getBookByID(title: string, byTitle:boolean): BookModel | undefined 
 
-  public getBookByID(id: string): BookModel | undefined {
-    return this.Book.find((book) => book.id == id);
+  public getBookByID(identifier: string, byTitle?:boolean): BookModel | undefined {
+    if(byTitle){
+
+      return this.Book.find((book) => book.title.toLowerCase() == identifier.toLowerCase());
+    }
+    return this.Book.find((book) => book.id == identifier);
   }
   private checkIfAlreadyExist(title: string): boolean {
     return this.Book.some(

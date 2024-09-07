@@ -4,9 +4,11 @@ POST http://localhost:3000/api/books
 Content-Type: application/json
 
 {
-  "title": "Brave New World1",
+  "title": "Brave New World",
   "author": "Aldous Huxley",
-  "year": 1932
+  "year": 1932,
+  "genre":"Science fiction",
+  "rating":4.3
 }
 
 

@@ -4,9 +4,19 @@ import { ApiReponse } from "../Utils/ApiResponse";
 
 const bookService = new BookService();
 
+
 export const getAllBooks = (req: Request, res: Response) => {
   const book = bookService.getAllBooks();
   res.json(ApiReponse.success(book));
+};
+
+export const getBookByTitle = (req: Request, res: Response) => {
+  const book = bookService.getBookByID(req.params.id, true);
+  if (book) {
+    res.json(ApiReponse.success(book));
+  } else {
+    res.status(404).json(ApiReponse.error("Book not found!"));
+  }
 };
 
 export const getBookByID = (req: Request, res: Response) => {
